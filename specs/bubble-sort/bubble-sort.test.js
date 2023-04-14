@@ -10,22 +10,47 @@
   index's. Continue looping through until all values are in ascending order
 */
 
-function bubbleSort(nums) {
-  // Counts the number of loops so that each runthrough is one element shorter
-  let loopCounter = 1;
+// ----- ME -----
 
-  while (loopCounter < nums.length) {
-    for (let i = 0; i < nums.length - loopCounter; i++) {
+// function bubbleSort(nums) {
+//   // Counts the number of loops so that each runthrough is one element shorter
+//   let loopCounter = 1;
+
+//   while (loopCounter < nums.length) {
+//     for (let i = 0; i < nums.length - loopCounter; i++) {
+//       if (nums[i] > nums[i + 1]) {
+//         let temp = nums[i];
+//         nums[i] = nums[i + 1];
+//         nums[i + 1] = temp;
+//       } else {
+//         // Leave it
+//       }
+//     }
+//     loopCounter++;
+//   }
+
+//   return nums;
+// }
+
+
+
+// ----- BRIAN HOLT -----
+
+function bubbleSort(nums) {
+  let swapped = false;
+
+  // A do loop always is executed once, regardless of the initial condition.
+  do {
+    swapped = false;
+    for (let i = 0; i < nums.length; i++) {
       if (nums[i] > nums[i + 1]) {
-        let temp = nums[i];
+        const temp = nums[i];
         nums[i] = nums[i + 1];
         nums[i + 1] = temp;
-      } else {
-        // Leave it
+        swapped = true;
       }
     }
-    loopCounter++;
-  }
+  } while (swapped);
 
   return nums;
 }
