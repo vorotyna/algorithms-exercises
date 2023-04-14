@@ -13,14 +13,30 @@
   And you put xdescribe instead of describe if you want to suspend running the unit tests.  
 */
 
+// ----- ME -----
+
 function insertionSort(nums) {
-  // code goes here
+  for (i = 1; i < nums.length; i++) {
+
+    if (nums[i] < nums[i - 1]) {
+      let temp = nums[i];
+
+      for (s = i - 1; s >= 0; s--) {
+        if (temp < nums[s]) {
+          nums[s + 1] = nums[s]; //
+          nums[s] = temp;
+        }
+      }
+    }
+  }
+  return nums;
 }
+
 
 // unit tests
 // do not modify the below code
-test.skip("insertion sort", function () {
-  const nums = [10, 5, 3, 8, 2, 6, 4, 7, 9, 1];
+test("insertion sort", function() {
+  const nums = [10, 5, 3, 8, 2, 6, 4, 7, 9, 1]; // 5, 10, 3 // 5, 3, 10
   insertionSort(nums);
   expect(nums).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
 });
