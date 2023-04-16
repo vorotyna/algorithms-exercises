@@ -9,19 +9,35 @@
  
  */
 
+
+// ----- ME -----
+// function nestedAdd(array) {
+//   let sum = 0;
+
+//   for (let i = 0; i < array.length; i++) {
+//     if (Array.isArray(array[i])) {
+//       sum += nestedAdd(array[i]);
+//     } else {
+//       sum += array[i];
+//     }
+//   }
+//   return sum;
+// }
+
+
+// ----- BRIAN HOLT -----
 function nestedAdd(array) {
   let sum = 0;
-
   for (let i = 0; i < array.length; i++) {
-    if (Array.isArray(array[i])) {
-      sum += nestedAdd(array[i]);
+    const current = array[i];
+    if (Array.isArray(current)) {
+      sum += nestedAdd(current);
     } else {
-      sum += array[i];
+      sum += current;
     }
   }
   return sum;
 }
-
 
 
 test("nested arrays addition", () => {
