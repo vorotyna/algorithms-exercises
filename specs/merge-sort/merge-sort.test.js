@@ -15,7 +15,10 @@ const mergeSort = (nums) => {
   const left = nums.slice(0, middle);
   const right = nums.slice(middle);
 
-  return merge(mergeSort(left), mergeSort(right));
+  const sortedLeft = mergeSort(left);
+  const sortedRight = mergeSort(right);
+
+  return merge(sortedLeft, sortedRight);
 };
 
 const merge = (left, right) => {
