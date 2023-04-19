@@ -13,12 +13,28 @@
 */
 
 function quickSort(nums) {
-  // code goes here
+  // base case, arrays of length 0 or 1 are sorted already
+  if (nums.length <= 1) return nums;
+
+  // last number is the pivot
+  const pivot = nums[nums.length - 1];
+  const left = [];
+  const right = [];
+
+  // sort all smaller numbers than the pivot into left
+  // and all bigger numbers into right
+  for (let i = 0; i < nums.length - 1; i++) {
+    if (nums[i] < pivot) {
+      left.push(nums[i]);
+    } else {
+      right.push(nums[i]);
+    }
+  }
 }
 
 // unit tests
 // do not modify the below code
-test.skip("quickSort", function () {
+test.skip("quickSort", function() {
   const input = [10, 8, 2, 1, 6, 3, 9, 4, 7, 5];
   const answer = quickSort(input);
 
