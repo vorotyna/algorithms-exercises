@@ -9,13 +9,60 @@
 
 */
 
+
+// number = 3001, placeholder = 0
+// returns 1
+function getDigit(number, placeholder) {
+  const string = number.toString();
+
+  return string[string.length - 1 - placeholder] || 0;
+}
+
+
+// Retrieves the number of placeholders in the longest value
+function getLongestNumber(array) {
+  let longestNumber = 0;
+
+  for (let i = 0; i < array.length; i++) {
+    if (array[i].toString().length > longestNumber) {
+      longestNumber = array[i].toString().length;
+    }
+  }
+  return longestNumber;
+}
+
+
+
 function radixSort(array) {
-  // code goes here
+  // Find longest number
+  const longestNumber = getLongestNumber(array);
+  // Create how many buckets you need
+  // An array of 10 arrays
+  const buckets = new Array(10).fill().map(() => []);
+
+  // For-loop for how many iterations you need to do, based on the longest number
+  for (let i = 0; i < longestNumber; i++) {
+    // While loop
+    // Enqueue the numbers into their buckets
+    while (array.length) {
+      const current = array.shift();
+      buckets[getDigit(current, i)].push(current);
+    }
+    // For-loop for each bucket 
+    // Dequeue all of the results
+    for (let j = 0; j < 10; j++) {
+      while (buckets[j].length) {
+        array.push(buckets[j].shift());
+      }
+    }
+  }
+
+  return array;
 }
 
 // unit tests
 // do not modify the below code
-describe.skip("radix sort", function () {
+describe("radix sort", function() {
   it("should sort correctly", () => {
     const nums = [
       20,
