@@ -36,7 +36,7 @@ function binarySearch(id, array) {
 
 // unit tests
 // do not modify the below code
-test("linear search", function () {
+test("linear search", function() {
   const lookingFor = { id: 5, name: "Brian" };
   expect(
     linearSearch(5, [
@@ -58,7 +58,7 @@ test("linear search", function () {
   ).toBe(lookingFor);
 });
 
-test("binary search", function () {
+test("binary search", function() {
   const lookingFor = { id: 23, name: "Brian" };
   expect(
     binarySearch(23, [

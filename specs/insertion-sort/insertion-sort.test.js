@@ -15,22 +15,22 @@
 
 // ----- ME -----
 
-function insertionSort(nums) {
-  for (i = 1; i < nums.length; i++) {
+// function insertionSort(nums) {
+//   for (i = 1; i < nums.length; i++) {
 
-    if (nums[i] < nums[i - 1]) {
-      let temp = nums[i];
+//     if (nums[i] < nums[i - 1]) {
+//       let temp = nums[i];
 
-      for (s = i - 1; s >= 0; s--) {
-        if (temp < nums[s]) {
-          nums[s + 1] = nums[s]; //
-          nums[s] = temp;
-        }
-      }
-    }
-  }
-  return nums;
-}
+//       for (s = i - 1; s >= 0; s--) {
+//         if (temp < nums[s]) {
+//           nums[s + 1] = nums[s]; //
+//           nums[s] = temp;
+//         }
+//       }
+//     }
+//   }
+//   return nums;
+// }
 
 
 
